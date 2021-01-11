@@ -6,7 +6,7 @@ pipeline {
         stage('Test') {
             steps {
                 checkout scm
-                sh 'dx-scanner run --ci -r --fail=off'
+                sh 'dx-scanner run --ci'
             }
         }
     }
