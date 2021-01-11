@@ -6,7 +6,9 @@ pipeline {
         stage('Test') {
             steps {
                 checkout scm
-                sh 'dx-scanner run --ci'
+                withCredentials([string(credentialsId: 'dxscanner_api_token', variable: 'DXSCANNER_API_TOKEN'), string(credentialsId: 'GitHub_token', variable: 'GH_TOKEN')]) {
+                  sh 'dx-scanner run --ci -r -a $GH_TOKEN -t $DXSCANNER_API_TOKEN'
+                }
             }
         }
     }
