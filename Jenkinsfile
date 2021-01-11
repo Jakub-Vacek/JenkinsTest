@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'dxheroes/dx-scanner:latest' }
+        docker { image 'dxheroes/dx-scanner:v3.48.8' }
     }
     stages {
         stage('Test') {
